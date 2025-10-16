@@ -40,8 +40,6 @@ The StudyNotion platform consists of three main components: front end, back end,
 - MongoDB as a NoSQL database.
 - Stores course content, user data, and other platform-related info.
 
-### Architecture Diagram
-![Architecture](images/architecture.png)
 
 ---
 
@@ -91,3 +89,4 @@ Sample Endpoints:
 
 ## Conclusion
 StudyNotion provides a seamless learning experience for students and a platform for instructors to showcase expertise. Its MERN stack architecture ensures scalability, responsiveness, and maintainability.
+
