@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # StudyNotion Online Education Platform (MERN App) [Website Link](https://studynotion-frontend.vercel.app/)
 
 ![Main Page](images/mainpage.png)
@@ -210,3 +211,9 @@ requests and responses provided above illustrate how each endpoint will function
 what kind of data it will accept or return. With this API design, StudyNotion will be able to
 provide a smooth user experience while ensuring security and stability.
 
+=======
+# SkillNest
+Its a learning management system.
+>>>>>>> dc999f09c91bf91a0445c5a35938618e7981edcf
+#   S k i l l N e s t  
+ 
