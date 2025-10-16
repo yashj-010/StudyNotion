@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # StudyNotion Online Education Platform (MERN App) [Website Link](https://studynotion-frontend.vercel.app/)
 
 ![Main Page](images/mainpage.png)
@@ -215,5 +214,6 @@ provide a smooth user experience while ensuring security and stability.
 # SkillNest
 Its a learning management system.
 >>>>>>> dc999f09c91bf91a0445c5a35938618e7981edcf
-#   S k i l l N e s t  
+#   S k i l l N e s t 
+ 
  
