@@ -2,6 +2,7 @@
   "name": "edvitya",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
   "dependencies": {
     "@ramonak/react-progress-bar": "^5.0.3",
     "@reduxjs/toolkit": "^1.9.5",
@@ -31,11 +32,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thepranaygupta/react-tailwind-css-starter-pack.git"
+    "url": "git+https://github.com/yashj-010/StudyNotion.git"
   },
-  "author": "Pranay Gupta",
+  "author": "yashj-010",
   "bugs": {
-    "url": "https://github.com/thepranaygupta/react-tailwind-css-starter-pack/issues"
+    "url": "https://github.com/yashj-010/StudyNotion/issues"
   },
   "scripts": {
     "start": "react-scripts start",
