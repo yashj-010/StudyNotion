@@ -1,13 +1,13 @@
-# StudyNotion Online Education Platform (MERN App) 
-[Website Link](https://studynotion-frontend.vercel.app/)
+# Edvitya Online Education Platform (MERN App) 
+[Website Link](https://edvitya-five.vercel.app/)
 
 ![Main Page](images/mainpage.png)
 
 ## Project Description
 
-StudyNotion is a fully functional ed-tech platform that enables users to create, consume, and rate educational content. The platform is built using the MERN stack: ReactJS, NodeJS, MongoDB, and ExpressJS.
+Edvitya is a fully functional ed-tech platform that enables users to create, consume, and rate educational content. The platform is built using the MERN stack: ReactJS, NodeJS, MongoDB, and ExpressJS.
 
-StudyNotion aims to provide:
+Edvitya aims to provide:
 - A seamless and interactive learning experience for students, making education more accessible and engaging.
 - A platform for instructors to showcase their expertise and connect with learners globally.
 
@@ -24,7 +24,7 @@ StudyNotion aims to provide:
 
 ## System Architecture
 
-The StudyNotion platform consists of three main components: front end, back end, and database. It follows a client-server architecture.
+The Edvitya platform consists of three main components: front end, back end, and database. It follows a client-server architecture.
 
 ### Front-end
 - Built with ReactJS for dynamic and responsive UIs.
@@ -87,6 +87,69 @@ Sample Endpoints:
 
 ---
 
+## Local Setup on Another Laptop
+
+### Prerequisites
+- Node.js (v16 or above)
+- npm or yarn
+- MongoDB Atlas account or a local MongoDB instance
+- Cloudinary account for image uploads
+- Razorpay account for payments
+- Gmail account for email sending
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/yashj-010/Edvitya.git
+cd Edvitya
+```
+
+### 2. Install frontend dependencies
+```bash
+npm install
+```
+
+### 3. Install backend dependencies
+```bash
+cd server
+npm install
+```
+
+### 4. Configure environment variables
+Create a file named `.env` inside the `server` folder and add the following values:
+```env
+PORT=4000
+MONGODB_URL=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+FOLDER_NAME=edvitya
+CLOUD_NAME=your_cloudinary_cloud_name
+API_KEY=your_cloudinary_api_key
+API_SECRET=your_cloudinary_api_secret
+RAZORPAY_KEY=your_razorpay_key
+RAZORPAY_SECRET=your_razorpay_secret
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USER=your_email@gmail.com
+MAIL_PASS=your_app_password
+```
+
+For the frontend, create a `.env` file in the root folder if needed and add:
+```env
+REACT_APP_BASE_URL=http://localhost:4000/api/v1
+REACT_APP_RAZORPAY_KEY=your_razorpay_public_key
+```
+
+### 5. Run the project
+From the root folder:
+```bash
+npm run dev
+```
+
+This will start:
+- Frontend on `http://localhost:3000`
+- Backend on `http://localhost:4000`
+
+---
+
 ## Conclusion
-StudyNotion provides a seamless learning experience for students and a platform for instructors to showcase expertise. Its MERN stack architecture ensures scalability, responsiveness, and maintainability.
+Edvitya provides a seamless learning experience for students and a platform for instructors to showcase expertise. Its MERN stack architecture ensures scalability, responsiveness, and maintainability.
 
