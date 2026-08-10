@@ -22,10 +22,18 @@ database.connect();
 //middlewares
 app.use(express.json());
 app.use(cookieParser());
+
+const allowedOrigins = [
+	"http://localhost:3000",
+	"http://localhost:3001",
+	"http://localhost:4002",
+	process.env.FRONTEND_URL,
+].filter(Boolean);
+
 app.use(
 	cors({
-		origin:["http://localhost:3000", "http://localhost:3001", "http://localhost:4002"],
-		credentials:true,
+		origin: allowedOrigins,
+		credentials: true,
 	})
 )
 
