@@ -18,46 +18,45 @@ import TimelineSection from "../components/core/HomePage/TimelineSection"
 function Home() {
   return (
     <div>
-      {/* Section 1 */}
-      <div className="relative mx-auto flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 text-white">
-        {/* Become a Instructor Button */}
-        <Link to={"/signup"}>
-          <div className="group mx-auto mt-16 w-fit rounded-full bg-richblack-800 p-1 font-bold text-richblack-200 drop-shadow-[0_1.5px_rgba(255,255,255,0.25)] transition-all duration-200 hover:scale-95 hover:drop-shadow-none">
-            <div className="flex flex-row items-center gap-2 rounded-full px-10 py-[5px] transition-all duration-200 group-hover:bg-richblack-900">
-              <p>Become an Instructor</p>
-              <FaArrowRight />
+      {/* NEW HERO SECTION - 50/50 SPLIT */}
+      <div className="relative mx-auto mt-20 flex w-11/12 max-w-maxContent flex-col lg:flex-row items-center justify-between gap-12 text-white">
+        
+        {/* Left Side: Text and CTAs */}
+        <div className="flex flex-col items-start gap-6 lg:w-[50%]">
+          <Link to={"/signup"}>
+            <div className="group rounded-full bg-richblack-800 p-1 font-bold text-richblack-200 shadow-[0_0px_20px_rgba(255,255,255,0.1)] transition-all duration-200 hover:scale-95">
+              <div className="flex flex-row items-center gap-2 rounded-full px-6 py-[5px] transition-all duration-200 group-hover:bg-richblack-900">
+                <p>Start your journey today</p>
+                <FaArrowRight />
+              </div>
             </div>
+          </Link>
+          
+          <div className="text-left text-5xl font-bold leading-tight">
+            Master the Art of
+            <br />
+            <HighlightText text={"Coding"} />
           </div>
-        </Link>
-
-        {/* Heading */}
-        <div className="text-center text-4xl font-semibold">
-          Empower Your Future with
-          <HighlightText text={"Coding Skills"} />
+          
+          <div className="w-[90%] text-left text-lg text-richblack-300">
+            Build the future with our industry-leading curriculum. Learn from real-world projects, connect with global mentors, and land your dream job faster.
+          </div>
+          
+          <div className="mt-4 flex flex-row gap-4">
+            <CTAButton active={true} linkto={"/signup"}>
+              Start Learning Free
+            </CTAButton>
+            <CTAButton active={false} linkto={"/login"}>
+              View Curriculum
+            </CTAButton>
+          </div>
         </div>
 
-        {/* Sub Heading */}
-        <div className="-mt-3 w-[90%] text-center text-lg font-bold text-richblack-300">
-          With our online coding courses, you can learn at your own pace, from
-          anywhere in the world, and get access to a wealth of resources,
-          including hands-on projects, quizzes, and personalized feedback from
-          instructors.
-        </div>
-
-        {/* CTA Buttons */}
-        <div className="mt-8 flex flex-row gap-7">
-          <CTAButton active={true} linkto={"/signup"}>
-            Learn More
-          </CTAButton>
-          <CTAButton active={false} linkto={"/login"}>
-            Book a Demo
-          </CTAButton>
-        </div>
-
-        {/* Video */}
-        <div className="mx-3 my-7 shadow-[10px_-5px_50px_-5px] shadow-blue-200">
-          <video
-            className="shadow-[20px_20px_rgba(255,255,255)]"
+        {/* Right Side: Floating Video */}
+        <div className="lg:w-[50%] relative">
+           <div className="absolute -inset-4 bg-gradient-to-r from-yellow-200 to-caribbeangreen-400 opacity-30 blur-2xl rounded-full"></div>
+           <video
+            className="relative z-10 rounded-3xl shadow-[0_0_40px_rgba(0,0,0,0.8)] border border-richblack-700 object-cover"
             muted
             loop
             autoPlay
@@ -65,16 +64,60 @@ function Home() {
             <source src={Banner} type="video/mp4" />
           </video>
         </div>
+      </div>
+
+      {/* REORDERED: INSTRUCTOR AND REVIEWS MOVED TO TOP */}
+      <div className="relative mx-auto my-32 flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 bg-richblack-900 text-white">
+        <InstructorSection />
+        <h1 className="text-center text-4xl font-semibold mt-16">
+          Loved by global learners
+        </h1>
+        <ReviewSlider />
+      </div>
+
+      {/* Section 2 */}
+      <div className="bg-pure-greys-5 text-richblack-700 py-16">
+        <div className="mx-auto flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 ">
+          {/* Job that is in Demand - Section 1 */}
+          <div className="mb-10 flex flex-col justify-between gap-7 lg:flex-row lg:gap-0">
+            <div className="text-4xl font-semibold lg:w-[45%] ">
+              Get the skills you need for a{" "}
+              <HighlightText text={"job that is in demand."} />
+            </div>
+            <div className="flex flex-col items-start gap-10 lg:w-[40%]">
+              <div className="text-[16px]">
+                The modern Edvitya is the dictates its own terms. Today, to
+                be a competitive specialist requires more than professional
+                skills.
+              </div>
+              <CTAButton active={true} linkto={"/signup"}>
+                <div className="">Learn More</div>
+              </CTAButton>
+            </div>
+          </div>
+
+          {/* Timeline Section - Section 2 */}
+          <TimelineSection />
+
+          {/* Learning Language Section - Section 3 */}
+          <LearningLanguageSection />
+        </div>
+      </div>
+
+      {/* MOVED DOWN: CODE BLOCKS & EXPLORE */}
+      <div className="relative mx-auto flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 text-white py-20">
+        
+        {/* Explore Section */}
+        <ExploreMore />
 
         {/* Code Section 1  */}
-        <div>
+        <div className="mt-20">
           <CodeBlocks
             position={"lg:flex-row"}
             heading={
               <div className="text-4xl font-semibold">
                 Unlock your
-                <HighlightText text={"coding potential"} /> with our online
-                courses.
+                <HighlightText text={"coding potential"} />
               </div>
             }
             subheading={
@@ -125,67 +168,6 @@ function Home() {
           />
         </div>
 
-        {/* Explore Section */}
-        <ExploreMore />
-      </div>
-
-      {/* Section 2 */}
-      <div className="bg-pure-greys-5 text-richblack-700">
-        <div className="homepage_bg h-[320px]">
-          {/* Explore Full Catagory Section */}
-          <div className="mx-auto flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8">
-            <div className="lg:h-[150px]"></div>
-            <div className="flex flex-row gap-7 text-white lg:mt-8">
-              <CTAButton active={true} linkto={"/signup"}>
-                <div className="flex items-center gap-2">
-                  Explore Full Catalog
-                  <FaArrowRight />
-                </div>
-              </CTAButton>
-              <CTAButton active={false} linkto={"/login"}>
-                Learn More
-              </CTAButton>
-            </div>
-          </div>
-        </div>
-
-        <div className="mx-auto flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 ">
-          {/* Job that is in Demand - Section 1 */}
-          <div className="mb-10 mt-[-100px] flex flex-col justify-between gap-7 lg:mt-20 lg:flex-row lg:gap-0">
-            <div className="text-4xl font-semibold lg:w-[45%] ">
-              Get the skills you need for a{" "}
-              <HighlightText text={"job that is in demand."} />
-            </div>
-            <div className="flex flex-col items-start gap-10 lg:w-[40%]">
-              <div className="text-[16px]">
-                The modern StudyNotion is the dictates its own terms. Today, to
-                be a competitive specialist requires more than professional
-                skills.
-              </div>
-              <CTAButton active={true} linkto={"/signup"}>
-                <div className="">Learn More</div>
-              </CTAButton>
-            </div>
-          </div>
-
-          {/* Timeline Section - Section 2 */}
-          <TimelineSection />
-
-          {/* Learning Language Section - Section 3 */}
-          <LearningLanguageSection />
-        </div>
-      </div>
-
-      {/* Section 3 */}
-      <div className="relative mx-auto my-20 flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 bg-richblack-900 text-white">
-        {/* Become a instructor section */}
-        <InstructorSection />
-
-        {/* Reviws from Other Learner */}
-        <h1 className="text-center text-4xl font-semibold mt-8">
-          Reviews from other learners
-        </h1>
-        <ReviewSlider />
       </div>
 
       {/* Footer */}

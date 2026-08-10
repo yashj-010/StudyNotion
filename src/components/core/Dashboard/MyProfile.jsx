@@ -10,105 +10,113 @@ export default function MyProfile() {
   const navigate = useNavigate()
 
   return (
-    <>
+    <div className="pb-10">
       <h1 className="mb-14 text-3xl font-medium text-richblack-5">
         My Profile
       </h1>
-      <div className="flex items-center justify-between rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-12">
-        <div className="flex items-center gap-x-4">
+
+      {/* Main Container Card containing Left and Right split */}
+      <div className="flex flex-col lg:flex-row gap-6 bg-richblack-800 border-[1px] border-richblack-700 rounded-2xl p-6 shadow-sm mb-10">
+        
+        {/* Left Card: Profile Image, Name, Email */}
+        <div className="relative flex flex-col items-center justify-center lg:w-1/3 bg-richblack-900 border-[1px] border-richblack-700 rounded-xl p-8">
+          {/* Edit Icon Button */}
+          <button
+            onClick={() => navigate("/dashboard/settings")}
+            className="absolute top-4 right-4 p-2 text-richblack-300 hover:text-cyan-100 hover:bg-richblack-800 rounded-full transition-all duration-200 outline-none"
+            title="Edit Profile"
+          >
+            <RiEditBoxLine size={20} />
+          </button>
+          
           <img
             src={user?.image}
             alt={`profile-${user?.firstName}`}
-            className="aspect-square w-[78px] rounded-full object-cover"
+            className="aspect-square w-32 h-32 rounded-full object-cover mb-5 ring-4 ring-richblack-800 shadow-md"
           />
-          <div className="space-y-1">
-            <p className="text-lg font-semibold text-richblack-5">
-              {user?.firstName + " " + user?.lastName}
-            </p>
-            <p className="text-sm text-richblack-300">{user?.email}</p>
-          </div>
-        </div>
-        <IconBtn
-          text="Edit"
-          onclick={() => {
-            navigate("/dashboard/settings")
-          }}
-        >
-          <RiEditBoxLine />
-        </IconBtn>
-      </div>
-      <div className="my-10 flex flex-col gap-y-10 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-12">
-        <div className="flex w-full items-center justify-between">
-          <p className="text-lg font-semibold text-richblack-5">About</p>
-          <IconBtn
-            text="Edit"
-            onclick={() => {
-              navigate("/dashboard/settings")
-            }}
-          >
-            <RiEditBoxLine />
-          </IconBtn>
-        </div>
-        <p
-          className={`${
-            user?.additionalDetails?.about
-              ? "text-richblack-5"
-              : "text-richblack-400"
-          } text-sm font-medium`}
-        >
-          {user?.additionalDetails?.about ?? "Write Something About Yourself"}
-        </p>
-      </div>
-      <div className="my-10 flex flex-col gap-y-10 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-12">
-        <div className="flex w-full items-center justify-between">
-          <p className="text-lg font-semibold text-richblack-5">
-            Personal Details
+          <h2 className="text-2xl font-semibold text-richblack-5 mb-1">
+            {user?.firstName + " " + user?.lastName}
+          </h2>
+          <p className="text-sm font-medium text-richblack-300">
+            {user?.email}
           </p>
-          <IconBtn
-            text="Edit"
-            onclick={() => {
-              navigate("/dashboard/settings")
-            }}
-          >
-            <RiEditBoxLine />
-          </IconBtn>
         </div>
-        <div className="flex max-w-[500px] justify-between">
-          <div className="flex flex-col gap-y-5">
+
+        {/* Right Card: About Section */}
+        <div className="relative flex flex-col lg:w-2/3 bg-richblack-900 border-[1px] border-richblack-700 rounded-xl p-8">
+           {/* Edit Icon Button */}
+           <button
+            onClick={() => navigate("/dashboard/settings")}
+            className="absolute top-4 right-4 p-2 text-richblack-300 hover:text-cyan-100 hover:bg-richblack-800 rounded-full transition-all duration-200 outline-none"
+            title="Edit About"
+          >
+            <RiEditBoxLine size={20} />
+          </button>
+
+          <h3 className="text-lg font-semibold text-richblack-5 mb-4">About</h3>
+          <p
+            className={`${
+              user?.additionalDetails?.about
+                ? "text-richblack-100"
+                : "text-richblack-400 italic"
+            } text-sm font-medium leading-relaxed`}
+          >
+            {user?.additionalDetails?.about ?? "Write Something About Yourself"}
+          </p>
+        </div>
+      </div>
+
+      {/* Personal Details Card */}
+      <div className="relative flex flex-col bg-richblack-800 border-[1px] border-richblack-700 rounded-2xl p-8 px-10 shadow-sm">
+        {/* Edit Icon Button */}
+        <button
+          onClick={() => navigate("/dashboard/settings")}
+          className="absolute top-8 right-10 p-2 text-richblack-300 hover:text-cyan-100 hover:bg-richblack-700 rounded-full transition-all duration-200 outline-none"
+          title="Edit Personal Details"
+        >
+          <RiEditBoxLine size={20} />
+        </button>
+
+        <h3 className="text-lg font-semibold text-richblack-5 mb-8">
+          Personal Details
+        </h3>
+        
+        <div className="flex max-w-[600px] justify-between">
+          <div className="flex flex-col gap-y-6">
             <div>
-              <p className="mb-2 text-sm text-richblack-600">First Name</p>
+              <p className="mb-1 text-sm text-richblack-500">First Name</p>
               <p className="text-sm font-medium text-richblack-5">
                 {user?.firstName}
               </p>
             </div>
             <div>
-              <p className="mb-2 text-sm text-richblack-600">Email</p>
+              <p className="mb-1 text-sm text-richblack-500">Email</p>
               <p className="text-sm font-medium text-richblack-5">
                 {user?.email}
               </p>
             </div>
             <div>
-              <p className="mb-2 text-sm text-richblack-600">Gender</p>
+              <p className="mb-1 text-sm text-richblack-500">Gender</p>
               <p className="text-sm font-medium text-richblack-5">
                 {user?.additionalDetails?.gender ?? "Add Gender"}
               </p>
             </div>
           </div>
-          <div className="flex flex-col gap-y-5">
+          <div className="flex flex-col gap-y-6">
             <div>
-              <p className="mb-2 text-sm text-richblack-600">Last Name</p>
+              <p className="mb-1 text-sm text-richblack-500">Last Name</p>
               <p className="text-sm font-medium text-richblack-5">
                 {user?.lastName}
               </p>
             </div>
             <div>
-              <p className="mb-2 text-sm text-richblack-600">Phone Number</p>
+              <p className="mb-1 text-sm text-richblack-500">Phone Number</p>
               <p className="text-sm font-medium text-richblack-5">
                 {user?.additionalDetails?.contactNumber ?? "Add Contact Number"}
               </p>
             </div>
             <div>
-              <p className="mb-2 text-sm text-richblack-600">Date Of Birth</p>
+              <p className="mb-1 text-sm text-richblack-500">Date Of Birth</p>
               <p className="text-sm font-medium text-richblack-5">
                 {formattedDate(user?.additionalDetails?.dateOfBirth) ??
                   "Add Date Of Birth"}
@@ -117,6 +125,6 @@ export default function MyProfile() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }

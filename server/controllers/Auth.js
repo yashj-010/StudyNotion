@@ -64,7 +64,7 @@ exports.signup = async (req, res) => {
         success: false,
         message: "The OTP is not valid",
       })
-    } else if (otp !== response[0].otp) {
+    } else if (String(otp) !== response[0].otp) {
       // Invalid OTP
       return res.status(400).json({
         success: false,
@@ -76,8 +76,7 @@ exports.signup = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10)
 
     // Create the user
-    let approved = ""
-    approved === "Instructor" ? (approved = false) : (approved = true)
+    const approved = accountType === "Instructor" ? false : true
 
     // Create the Additional Profile For User
     const profileDetails = await Profile.create({
@@ -92,10 +91,10 @@ exports.signup = async (req, res) => {
       email,
       contactNumber,
       password: hashedPassword,
-      accountType: accountType,
-      approved: approved,
+      accountType,
+      approved,
       additionalDetails: profileDetails._id,
-      image: "",
+      image: `https://api.dicebear.com/5.x/initials/svg?seed=${firstName} ${lastName}`,
     })
 
     return res.status(200).json({
@@ -185,7 +184,15 @@ exports.sendotp = async (req, res) => {
 
     // Check if user is already present
     // Find user with provided email
-    const checkUserPresent = await User.findOne({ email })
+    let checkUserPresent = null
+    try {
+      checkUserPresent = await User.findOne({ email })
+    } catch (error) {
+      console.warn(
+        "Skipping user lookup because the database is currently unavailable:",
+        error.message
+      )
+    }
     // to be used in case of signup
 
     // If user found with provided email

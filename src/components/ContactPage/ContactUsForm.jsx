@@ -109,11 +109,10 @@ const ContactUsForm = () => {
         <div className="flex gap-5">
           <div className="flex w-[81px] flex-col gap-2">
             <select
-              type="text"
-              name="firstname"
-              id="firstname"
-              placeholder="Enter first name"
+              name="countrycode"
+              id="countrycode"
               className="form-style"
+              defaultValue="+91"
               {...register("countrycode", { required: true })}
             >
               {CountryCode.map((ele, i) => {

@@ -25,17 +25,19 @@ export function sendOtp(email, navigate) {
       })
       console.log("SENDOTP API RESPONSE............", response)
 
-      console.log(response.data.success)
+      const success = response?.data?.success ?? response?.success
+      const message = response?.data?.message ?? response?.message ?? "OTP Sent Successfully"
 
-      if (!response.data.success) {
-        throw new Error(response.data.message)
+      if (!success) {
+        throw new Error(message)
       }
 
-      toast.success("OTP Sent Successfully")
+      toast.success(message)
       navigate("/verify-email")
     } catch (error) {
       console.log("SENDOTP API ERROR............", error)
-      toast.error("Could Not Send OTP")
+      const message = error?.response?.data?.message || error?.message || "Could Not Send OTP"
+      toast.error(message)
     }
     dispatch(setLoading(false))
     toast.dismiss(toastId)
